@@ -1,242 +1,87 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-<title>MITS Institutional Portal</title>
-<style>
-:root{--primary:#1d4ed8;--dark:#0f172a;--light:#f1f5f9;--text:#1e293b;--radius:10px}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Segoe UI,Arial,sans-serif;color:var(--text);background:var(--light);line-height:1.6}
-a{color:var(--primary);text-decoration:none}
-.container{width:92%;max-width:1100px;margin:auto}
-.section{padding:2rem 0}
-h1,h2{margin-bottom:.8rem;color:var(--dark)}h2{margin-top:1.5rem}
-ul{padding-left:1.2rem}
-.page{display:none;min-height:60vh}.page.active{display:block}
-.site-header{background:var(--dark);position:sticky;top:0;z-index:50}
-.nav-wrap{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0;flex-wrap:wrap}
-.logo{color:#fff;font-weight:700;font-size:1.2rem;display:flex;align-items:center;gap:.5rem}
-.logo-mark{background:var(--primary);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}
-.nav-list{list-style:none;display:flex;gap:1.2rem;padding:0}
-.nav-list a{color:#cbd5e1;padding:.3rem 0}.nav-list a:hover,.nav-list a.active{color:#fff;border-bottom:2px solid var(--primary)}
-.nav-toggle{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
-.hero{background:linear-gradient(135deg,#1d4ed8,#0f172a);color:#fff;text-align:center;padding:4rem 0}
-.hero h1{color:#fff;font-size:2.2rem}.hero p{margin:.8rem 0 1.4rem}
-.btn{display:inline-block;background:var(--primary);color:#fff;border:0;padding:.6rem 1.2rem;border-radius:var(--radius);cursor:pointer;font-size:1rem}
-.btn:hover{background:#1e40af}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
-.card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.card-body{padding:1rem}.card-body .btn{margin-top:.6rem}
-.card-img{height:150px}
-.img1{background:linear-gradient(135deg,#6366f1,#3b82f6)}.img2{background:linear-gradient(135deg,#ec4899,#f59e0b)}.img3{background:linear-gradient(135deg,#10b981,#0ea5e9)}
-.meta{font-size:.85rem;color:#64748b}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
-.g-item{height:170px;border-radius:var(--radius);display:flex;align-items:flex-end}
-.g-item figcaption{color:#fff;background:rgba(0,0,0,.45);width:100%;padding:.4rem .7rem}
-.notice-list{list-style:none;padding:0}
-.notice-list li{background:#fff;padding:.9rem 1rem;margin-bottom:.7rem;border-radius:var(--radius);border-left:4px solid var(--primary)}
-.notice-list time{display:block;font-size:.8rem;color:#64748b}
-.tag{font-size:.75rem;padding:.1rem .5rem;border-radius:20px;color:#fff;margin-right:.4rem}
-.exam{background:#dc2626}.event{background:#2563eb}.holiday{background:#16a34a}.other{background:#7c3aed}
-.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-address{font-style:normal;background:#fff;padding:1.2rem;border-radius:var(--radius)}address p{margin-bottom:.6rem}
-form{background:#fff;padding:1.2rem;border-radius:var(--radius)}
-label{display:block;margin-top:.7rem;font-weight:600}
-input,textarea{width:100%;padding:.6rem;border:1px solid #cbd5e1;border-radius:6px;font:inherit}
-input.invalid,textarea.invalid{border-color:#dc2626}
-.error{color:#dc2626;font-size:.8rem;display:block;min-height:1rem}.success{color:#16a34a;margin-top:.8rem}
-form .btn{margin-top:.8rem}
-.slider{position:relative;background:var(--dark);color:#fff;border-radius:var(--radius);height:150px;overflow:hidden}
-.slide{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:0 3rem;font-size:1.2rem}
-.slide.active{display:flex}
-.slider button{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.2);color:#fff;border:0;padding:.5rem .8rem;cursor:pointer}
-.s-prev{left:0}.s-next{right:0}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:100;padding:1rem}
-.modal.open{display:flex}
-.modal-box{background:#fff;border-radius:var(--radius);padding:1.5rem;max-width:440px;width:100%;position:relative}
-.modal-close{position:absolute;top:.5rem;right:.8rem;background:none;border:0;font-size:1.5rem;cursor:pointer}
-.site-footer{background:var(--dark);color:#cbd5e1;padding:1.2rem 0;margin-top:2rem}
-.footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.site-footer a{color:#93c5fd}
-@media(max-width:768px){
-.nav-toggle{display:block}
-nav{width:100%;display:none}nav.open{display:block}
-.nav-list{flex-direction:column;gap:.4rem;padding:.6rem 0}
-.contact-wrap{grid-template-columns:1fr}
-.hero h1{font-size:1.6rem}
-.footer-grid{flex-direction:column;text-align:center}}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Veridian Institute Portal</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header class='site-header'>
-  <div class='container nav-wrap'>
-    <a class='logo' href='#home'><span class='logo-mark'>M</span> MITS Gwalior</a>
-    <button class='nav-toggle' aria-label='Toggle menu' aria-expanded='false'>&#9776;</button>
-    <nav aria-label='Main navigation'><ul class='nav-list'>
-      <li><a href='#home'>Home</a></li>
-      <li><a href='#about'>About</a></li>
-      <li><a href='#events'>Events</a></li>
-      <li><a href='#gallery'>Gallery</a></li>
-      <li><a href='#notices'>Notices</a></li>
-      <li><a href='#contact'>Contact</a></li>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="#home"><span class="logo-mark">V</span> Veridian Institute</a>
+    <div class="head-r"><button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9788;</button><button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button></div>
+    <nav aria-label="Main navigation"><ul class="nav-list">
+      <li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li><li><a href="#notices">Notices</a></li><li><a href="#contact">Contact</a></li>
     </ul></nav>
   </div>
 </header>
-
 <main>
-
-<!-- HOME -->
-<div class='page' id='home'>
-<section class='hero'><div class='container'><h1>Welcome to MITS Gwalior</h1><p>Excellence in education, innovation and community engagement.</p><a class='btn' href='#events'>Explore Events</a></div></section>
-<section class='container section'><h2>Announcements</h2>
-<div class='slider' aria-label='Announcements slider'>
-  <div class='slide active'>Admissions open for 2026-27 session</div>
-  <div class='slide'>Tech Fest registrations are now live</div>
-  <div class='slide'>Mid-semester exam schedule released</div>
-  <button class='s-prev' aria-label='Previous'>&#10094;</button><button class='s-next' aria-label='Next'>&#10095;</button>
+<div class="page" id="home">
+<section class="hero"><div class="container"><h1>Welcome to Veridian Institute</h1><p>Excellence in education, innovation and community engagement.</p><a class="btn" href="#events">Explore Events</a>
+<div class="stats"><div><b>6</b><span>Upcoming Events</span></div><div><b>5</b><span>Departments</span></div><div><b>4</b><span>Live Notices</span></div></div></div></section>
+<section class="container section"><h2>Announcements</h2>
+<div class="slider" aria-label="Announcements slider">
+  <div class="slide active">Admissions open for 2026–27 session</div>
+  <div class="slide">Tech Fest registrations are now live</div>
+  <div class="slide">Mid-semester exam schedule released</div>
+  <button class="s-prev" aria-label="Previous">&#10094;</button><button class="s-next" aria-label="Next">&#10095;</button>
 </div></section>
-<section class='container section'><h2>Upcoming Events</h2><div class='grid'>
-  <article class='card event-card' data-title='Tech Fest 2026' data-date='15 Dec 2026' data-loc='Main Auditorium' data-desc='Annual technical festival with coding, robotics and web design contests.'>
-    <div class='card-img img1'></div>
-    <div class='card-body'><h3>Tech Fest 2026</h3><p class='meta'>15 Dec 2026 &bull; Main Auditorium</p><p>Annual technical festival...</p><button class='btn details-btn' type='button'>View Details</button></div>
-  </article>
-  <article class='card event-card' data-title='Cultural Night' data-date='20 Dec 2026' data-loc='Open Air Theatre' data-desc='Music, dance and drama performances by students.'>
-    <div class='card-img img2'></div>
-    <div class='card-body'><h3>Cultural Night</h3><p class='meta'>20 Dec 2026 &bull; Open Air Theatre</p><p>Music, dance and drama...</p><button class='btn details-btn' type='button'>View Details</button></div>
-  </article>
-  <article class='card event-card' data-title='Sports Meet' data-date='05 Jan 2027' data-loc='College Ground' data-desc='Inter-department athletics and team sports tournament.'>
-    <div class='card-img img3'></div>
-    <div class='card-body'><h3>Sports Meet</h3><p class='meta'>05 Jan 2027 &bull; College Ground</p><p>Inter-department athletics...</p><button class='btn details-btn' type='button'>View Details</button></div>
-  </article>
-</div></section>
+<section class="container section"><h2>Upcoming Events</h2><div class="grid" id="homeEvents"></div>
+<p style="margin-top:1rem"><a class="btn" href="#events">View All Events</a></p></section>
 </div>
 
-<!-- ABOUT -->
-<div class='page' id='about'>
-<section class='container section'><h1>About the Institution</h1>
-<p>MITS Gwalior is an educational institution committed to quality technical education, research and holistic student development.</p>
-<div class='grid'>
-  <article class='card'><div class='card-body'><h3>Vision</h3><p>To be a centre of excellence in education and innovation.</p></div></article>
-  <article class='card'><div class='card-body'><h3>Mission</h3><p>To nurture skilled, ethical and socially responsible professionals.</p></div></article>
+<div class="page" id="about">
+<section class="container section"><h1>About the Institution</h1>
+<p>Veridian Institute of Technology is a fictional educational institution committed to quality technical education, research and holistic student development.</p>
+<div class="grid" style="margin-top:1rem">
+  <article class="card"><div class="card-body"><h3>Vision</h3><p>To be a centre of excellence in education and innovation.</p></div></article>
+  <article class="card"><div class="card-body"><h3>Mission</h3><p>To nurture skilled, ethical and socially responsible professionals.</p></div></article>
 </div>
 <h2>Courses / Departments</h2>
 <ul><li>Computer Science &amp; Engineering</li><li>Information Technology</li><li>Electronics &amp; Communication</li><li>Mechanical Engineering</li><li>Civil Engineering</li></ul>
 <h2>Facilities</h2>
 <ul><li>Library and Digital Resource Centre</li><li>Computer and Research Labs</li><li>Hostels and Cafeteria</li><li>Sports Complex</li></ul>
-</section>
-</div>
+</section></div>
 
-<!-- EVENTS -->
-<div class='page' id='events'>
-<section class='container section'><h1>Events</h1><div class='grid'>
-  <article class='card event-card' data-title='Tech Fest 2026' data-date='15 Dec 2026' data-loc='Main Auditorium' data-desc='Annual technical festival with coding, robotics and web design contests.'>
-    <div class='card-img img1'></div>
-    <div class='card-body'><h3>Tech Fest 2026</h3><p class='meta'>15 Dec 2026 &bull; Main Auditorium</p><p>Annual technical festival...</p><button class='btn details-btn' type='button'>View Details</button></div>
-  </article>
-  <article class='card event-card' data-title='Cultural Night' data-date='20 Dec 2026' data-loc='Open Air Theatre' data-desc='Music, dance and drama performances by students.'>
-    <div class='card-img img2'></div>
-    <div class='card-body'><h3>Cultural Night</h3><p class='meta'>20 Dec 2026 &bull; Open Air Theatre</p><p>Music, dance and drama...</p><button class='btn details-btn' type='button'>View Details</button></div>
-  </article>
-  <article class='card event-card' data-title='Sports Meet' data-date='05 Jan 2027' data-loc='College Ground' data-desc='Inter-department athletics and team sports tournament.'>
-    <div class='card-img img3'></div>
-    <div class='card-body'><h3>Sports Meet</h3><p class='meta'>05 Jan 2027 &bull; College Ground</p><p>Inter-department athletics...</p><button class='btn details-btn' type='button'>View Details</button></div>
-  </article>
-</div></section>
-</div>
+<div class="page" id="events"><section class="container section"><h1>Events</h1>
+<div class="toolbar" id="evChips"></div>
+<div class="grid" id="eventList"></div></section></div>
 
-<!-- GALLERY -->
-<div class='page' id='gallery'>
-<section class='container section'><h1>Gallery</h1>
-<div class='gallery-grid'>
-  <figure class='g-item img1'><figcaption>Campus</figcaption></figure>
-  <figure class='g-item img2'><figcaption>Tech Fest</figcaption></figure>
-  <figure class='g-item img3'><figcaption>Cultural Night</figcaption></figure>
-  <figure class='g-item img1'><figcaption>Sports Meet</figcaption></figure>
-  <figure class='g-item img2'><figcaption>Workshop</figcaption></figure>
-  <figure class='g-item img3'><figcaption>Convocation</figcaption></figure>
-</div>
-<p class='meta'>Replace gradients with real photos later.</p>
-</section>
-</div>
+<div class="page" id="gallery"><section class="container section"><h1>Gallery</h1>
+<div class="toolbar" id="gChips"></div>
+<div class="gallery-grid" id="gGrid"></div><p class="meta" style="margin-top:.8rem">Tap any picture to open it in full view. These are illustrations, swap in real photos anytime.</p></section></div>
 
-<!-- NOTICES -->
-<div class='page' id='notices'>
-<section class='container section'><h1>Notices</h1>
-<ul class='notice-list'>
-  <li><span class='tag exam'>Exam</span> Mid-semester examination begins 02 Dec 2026 <time datetime='2026-11-20'>20 Nov 2026</time></li>
-  <li><span class='tag event'>Event</span> Tech Fest registration open till 10 Dec <time datetime='2026-11-18'>18 Nov 2026</time></li>
-  <li><span class='tag holiday'>Holiday</span> Institute closed on 25 Dec 2026 <time datetime='2026-11-15'>15 Nov 2026</time></li>
-  <li><span class='tag other'>Update</span> Library timings revised to 9 AM - 8 PM <time datetime='2026-11-10'>10 Nov 2026</time></li>
-</ul>
-</section>
-</div>
+<div class="page" id="notices"><section class="container section"><h1>Notices</h1>
+<div class="toolbar" id="nChips"><input class="search" id="nSearch" type="search" placeholder="Search notices"></div>
+<ul class="notice-list" id="nList"></ul></section></div>
 
-<!-- CONTACT -->
-<div class='page' id='contact'>
-<section class='container section'><h1>Contact Us</h1>
-<div class='contact-wrap'>
+<div class="page" id="contact"><section class="container section"><h1>Contact Us</h1>
+<div class="contact-wrap">
   <address>
-    <p><strong>Address:</strong> Race Course Road, Gwalior, Madhya Pradesh</p>
-    <p><strong>Phone:</strong> +91 00000 00000</p>
-    <p><strong>Email:</strong> info@example.edu.in</p>
-    <p><a href='#'>Facebook</a> | <a href='#'>Instagram</a> | <a href='#'>LinkedIn</a></p>
+    <p><strong>Address:</strong> 12 Orchard Lane, Rivermont, Northvale</p>
+    <p><strong>Phone:</strong> +00 000 000 0000</p>
+    <p><strong>Email:</strong> info@veridian.example</p>
+    <div class="row-btns"><button class="btn small ghost" data-copy="info@veridian.example" type="button">Copy Email</button><button class="btn small ghost" data-copy="+00 000 000 0000" type="button">Copy Phone</button></div>
+    <p style="margin-top:.8rem"><a href="#contact">Facebook</a> | <a href="#contact">Instagram</a> | <a href="#contact">LinkedIn</a></p>
   </address>
-  <form id='contactForm' novalidate>
-    <label for='name'>Name</label><input id='name' name='name' type='text' placeholder='Your name'><span class='error'></span>
-    <label for='email'>Email</label><input id='email' name='email' type='email' placeholder='you@example.com'><span class='error'></span>
-    <label for='message'>Message</label><textarea id='message' name='message' rows='5' placeholder='Your message'></textarea><span class='error'></span>
-    <button class='btn' type='submit'>Submit</button>
-    <p class='success' hidden>Thank you! Your message has been submitted.</p>
+  <form id="contactForm" novalidate>
+    <label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name"><span class="error"></span>
+    <label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@example.com"><span class="error"></span>
+    <label for="message">Message</label><textarea id="message" name="message" rows="5" maxlength="300" placeholder="Your message"></textarea><span class="error"></span><div class="char" id="cc">0 / 300</div>
+    <div class="row-btns"><button class="btn" type="submit">Submit</button><button class="btn ghost" type="reset" id="rst">Clear</button></div>
+    <p class="success" hidden>Thank you! Your message has been submitted.</p>
   </form>
-</div>
-</section>
-</div>
-
+</div></section></div>
 </main>
-
-<footer class='site-footer'>
-  <div class='container footer-grid'>
-    <p>&copy; 2026 MITS Gwalior. All rights reserved.</p>
-    <p><a href='#about'>About</a> | <a href='#notices'>Notices</a> | <a href='#contact'>Contact</a></p>
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded',()=>{
-// Page switching (navbar)
-const pages=document.querySelectorAll('.page'),links=document.querySelectorAll('.nav-list a');
-const t=document.querySelector('.nav-toggle'),nav=document.querySelector('nav');
-const go=()=>{const id=(location.hash||'#home').slice(1);
-  pages.forEach(p=>p.classList.toggle('active',p.id===id));
-  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
-  nav.classList.remove('open');window.scrollTo(0,0)};
-window.addEventListener('hashchange',go);go();
-// Mobile menu
-t.addEventListener('click',()=>{const o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o)});
-// Announcement slider
-const slides=document.querySelectorAll('.slide');
-if(slides.length){let i=0;const show=n=>{slides[i].classList.remove('active');i=(n+slides.length)%slides.length;slides[i].classList.add('active')};
-document.querySelector('.s-prev').onclick=()=>show(i-1);document.querySelector('.s-next').onclick=()=>show(i+1);setInterval(()=>show(i+1),4000)}
-// Event details modal
-const cards=document.querySelectorAll('.event-card');
-if(cards.length){const m=document.createElement('div');m.className='modal';
-m.innerHTML=`<div class='modal-box'><button class='modal-close' aria-label='Close'>&times;</button><h3></h3><p class='meta'></p><p class='desc'></p></div>`;document.body.appendChild(m);
-const close=()=>m.classList.remove('open');
-cards.forEach(c=>c.querySelector('.details-btn').addEventListener('click',()=>{
-m.querySelector('h3').textContent=c.dataset.title;m.querySelector('.meta').textContent=c.dataset.date+' | '+c.dataset.loc;m.querySelector('.desc').textContent=c.dataset.desc;m.classList.add('open')}));
-m.addEventListener('click',e=>{if(e.target===m)close()});m.querySelector('.modal-close').onclick=close;
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close()})}
-// Contact form validation
-const f=document.getElementById('contactForm');
-if(f){f.addEventListener('submit',e=>{e.preventDefault();let ok=true;
-const chk=(id,test,msg)=>{const el=f[id],er=el.nextElementSibling;const v=el.value.trim();
-if(!test(v)){er.textContent=msg;el.classList.add('invalid');ok=false}else{er.textContent='';el.classList.remove('invalid')}};
-chk('name',v=>v.length>=2,'Please enter your name (min 2 characters).');
-chk('email',v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),'Please enter a valid email address.');
-chk('message',v=>v.length>=10,'Message must be at least 10 characters.');
-const s=f.querySelector('.success');s.hidden=!ok;if(ok)f.reset()})}
-});
-</script>
+<footer class="site-footer"><div class="container footer-grid">
+  <p>&copy; 2026 Veridian Institute. All rights reserved.</p>
+  <p><a href="#about">About</a> | <a href="#notices">Notices</a> | <a href="#contact">Contact</a></p>
+</div></footer>
+<button class="to-top" id="toTop" aria-label="Back to top">&#8593;</button>
+<div class="toast" id="toast"></div>
+<div class="lightbox" id="lb"><button class="btn small lb-x" id="lbX" type="button">Close &times;</button><div class="lb-img" id="lbImg"></div><p class="lb-cap" id="lbCap"></p><div class="lb-nav"><button class="btn small" id="lbP" type="button">&#10094; Prev</button><button class="btn small" id="lbN" type="button">Next &#10095;</button></div></div>
+<script src="script.js"></script>
 </body>
 </html>
